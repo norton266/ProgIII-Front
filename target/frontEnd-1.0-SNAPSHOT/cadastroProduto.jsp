@@ -68,14 +68,17 @@
         <input type="text" id="descricao" name="descricao" />
 
         <label for="unidade">Unidade:</label>
-        <input
-          type="text"
-          id="unidade"
-          name="unidade"
-          pattern="(UNI|PEC|LT|KG|CX|FR|GAR)"
-          title="Por favor, insira uma das opções válidas: UNI, PEC, LT, KG, CX, FR, GAR"
-          required
-        />
+        <select name ="unidade" id="unidade">
+            <option value=""> -- Selecione uma unidade -- </option>
+            <option id="uni" value="UNI">UNI</option>
+            <option id="pec" value="PEC">PEC</option>
+            <option id="lt" value="LT">LT</option>
+            <option id="kg" value="KG">KG</option>
+            <option id="cx" value="CX">CX</option>
+            <option id="fr" value="FR">FR</option>
+            <option id="gar" value="GAR">GAR</option>
+        </select>
+          
 
         <label for="preco">Preço:</label>
         <input
@@ -86,6 +89,8 @@
           min="0.00"
           required
         />
+
+
 
         <div class="buttons">
           <input type="submit" value="inserir" name="acao" id="salvar" />

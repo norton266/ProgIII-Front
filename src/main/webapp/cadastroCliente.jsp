@@ -113,12 +113,24 @@
             class="input-form"
             maxlength="20"
           />
+<<<<<<< HEAD
         <label for="sexo">Sexo:</label>
                 <select name="sexo" class="input-form" required>
                   <option value=""></option>
                   <option value="MASCULINO">MASCULINO</option>
                   <option value="FEMININO">FEMININO</option>
                 </select>
+=======
+
+          <label for="unidade">Sexo:</label>
+        <select name ="sexo" id="sexo">
+            <option value=""> -- Selecione uma opcao -- </option>
+            <option id="feminino" value="FEMININO">FEMININO</option>
+            <option id="masculino" value="MASCULINO">MASCULINO</option>
+            
+        </select>
+
+>>>>>>> a0dcb38663067572838b352e989263ac01e5b816
         </div>
         <div class="input-container">
           <label for="email">Email:</label>
