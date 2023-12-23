@@ -89,6 +89,7 @@
             class="input-form"
             pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
             title="Digite um CPF válido no formato 000.000.000-00"
+            placeholder="xxx.xxx.xxx-xx"
             required
           />
 
@@ -98,7 +99,7 @@
             id="rg"
             name="rg"
             class="input-form"
-            minlength="15"
+            minlength="10"
             maxlength="15"
           />
         </div>
@@ -120,6 +121,7 @@
             <option id="masculino" value="MASCULINO">MASCULINO</option>
             
         </select>
+
         </div>
         <div class="input-container">
           <label for="email">Email:</label>
