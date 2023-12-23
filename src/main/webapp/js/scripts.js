@@ -11,11 +11,12 @@ function listarClientes(){
                 var linha = "";
                 linha = "<tr>";
                 linha += "<td><input type=\"radio\" name=\"id\" value=\""+msg[i].id+"\"></td>";
-                linha += "<td>"+msg[i].nome+"</td>";
                 linha += "<td>"+msg[i].cpf+"</td>";
+                linha += "<td>"+msg[i].nome+"</td>";                
                 linha += "<td>"+msg[i].email+"</td>";
+                linha += "<td>"+msg[i].data_nascimento+"</td>";
                 linha += "<td>"+msg[i].telefone+"</td>";
-                linha += "<td>"+msg[i].cep+"</td>";
+                
                 linha += "</tr>";
 
                 $("#tabelaResultado").append(linha);
@@ -29,11 +30,13 @@ function listarClientes(){
 }
 
 function excluir() {
-    var params = '{\"cpf\":'+$('input[name="cpf"]:checked').val()+'}';
-
+    var params = '{\"id\":'+$('input[name="id"]:checked').val()+'}';
+    
+    alert(params);
+    
     $.ajax({
         type: "PUT",
-        url: "http://localhost/ProgIII/webresources/Clientes/excluir",
+        url: "http://localhost:8080/ProgIII/webresources/Clientes/excluir",
         data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",

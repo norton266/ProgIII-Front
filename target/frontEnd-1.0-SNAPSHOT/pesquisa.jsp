@@ -61,15 +61,15 @@
           <button id="botaoFiltrar" class="input-filter">Filtrar</button>
         </div>
       </form>
-      <form action="cadastro-cliente.html" method="post">
+      <form action="cadastroCliente.jsp" method="post">
       <div id="buttons-pesquisa">
-        <a href="./cadastro-usuario.html"
+        <a href="./cadastroCliente.jsp"
           ><input type="submit" name="acao" value="Inserir" class="input-filter"
         /></a>
-        <a href="./cadastro-usuario.html"
+        <a href="./cadastroCliente.jsp"
           ><input type="submit" name="acao" value="Atualizar" class="input-filter"
         /></a>
-        <a href="./cadastro-usuario.html"
+        <a href="./cadastroCliente.jsp"
           ><input type="submit" value="Excluir" class="input-filter" onclick="excluir()"
         /></a>
       </div>
