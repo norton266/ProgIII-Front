@@ -18,8 +18,18 @@
     <script src="./js/scripts.js"></script>
     <title>Document</title>
   </head>
-
-  <body>
+  <%
+      if (acao.equals("Atualizar") || acao.equals("Excluir")) {
+  %>
+      <body onload="buscarCamisaPorId(<%= id%>)">
+  <%
+      } else {
+  %>
+      <body>
+  <%
+          id = "-1";
+      }
+  %>
     <div>
       <header>
         <img src="./icons/pizza.png" id="logo-img" />
@@ -59,13 +69,16 @@
         <h1>Cadastro de usuário</h1>
         <hr id="hr-form" />
       </div>
-      <form id="formulario" action="processamento.jsp" method="post">
+      <form id="formulario" action="processamentoUsuario.jsp" method="post">
+      <input type="hidden" name="id" id="id" value="<%= id%>">
+
         <label for="cpf">CPF:</label>
         <input
           type="text"
           id="cpf"
           name="cpf"
           pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+          placeholder ="000.000.000-00"
           required
           title="Digite um CPF válido no formato 000.000.000-00"
         />
@@ -120,7 +133,7 @@
         </div>
 
         <div class="buttons">
-          <input type="submit" name="acao" value="inserir" id="salvar"/>
+          <input type="submit" name="acao" value="<%= acao%>" id="salvar"/>
           <input type="submit" value="Cancelar" id="cancelar" />
         </div>
       </form>

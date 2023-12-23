@@ -54,11 +54,11 @@
         </div>
       </div>
       <div>
-        <h1>Cadastro de cliente</h1>
+        <h1>Cadastro</h1>
         <hr id="hr-form" />
       </div>
       <p id="msg"></p>
-        <a href="/FrontEnd1012/camisas/lista.jsp">Voltar para Lista de Camisas</a>
+        <a href="/frontEnd/pesquisa.jsp">Voltar</a>
      </div>
   </body>
         
