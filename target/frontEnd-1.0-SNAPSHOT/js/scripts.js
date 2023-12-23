@@ -114,6 +114,30 @@ function salvarCliente(id, nome, data_nascimento, cpf, rg,
     });
 }
 
+function salvarProduto(id, nome, descricao, unidade, preco_unitario) {
+    var params = "{\"id\":"+id+",";
+    params += "\"nome\":\""+nome+"\",";
+    params += "\"descricao\":"+descricao+",";
+    params += "\"unidade\":"+unidade+",";
+    params += "\"preco_unitario\":"+preco_unitario+"}";
+    
+    alert(params);
+    
+    $.ajax({
+        type: "PUT",
+        url: "http://localhost:8080/ProgIII/webresources/Produtos/inserir",
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status) {
+            $("#msg").append('Sucesso!!!!');
+        },
+        error: function(xhr, msg, e) {
+            $("#msg").append(JSON.stringify(xhr));
+        }
+    });
+}
+
 function toogleLoginError(){
   var cpf = document.getElementById("cpf-login").value;
   var senha = document.getElementById("senha-login").value;
