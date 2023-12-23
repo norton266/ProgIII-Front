@@ -182,10 +182,21 @@ function buscarClientePorId(id) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(msg, status) {
-            $("#modelo").val(msg.modelo);
-            $("#tamanho").val(msg.tamanho);
-            $("#preco").val(msg.preco);
-            $("#qtde").val(msg.quantidade_estoque);
+            $("#nome").val(msg.nome);
+            $("#date").val(msg.data_nascimento);
+            $("#cpf").val(msg.cpf);
+            $("#rg").val(msg.rg);
+            $("#orgao-emissor").val(msg.orgao-emissor);
+            $("#sexo").val(msg.sexo);
+            $("#email").val(msg.email);
+            $("#telefone").val(msg.telefone);
+            $("#whats").val(msg.whats);
+            $("#cep").val(msg.cep);
+            $("#logradouro").val(msg.logradouro);
+            $("#numero").val(msg.numero);
+            $("#bairro").val(msg.bairro);
+            $("#cidade").val(msg.cidade);
+            $("#estado").val(msg.estado);
         },
         error: function(xhr, msg, e) {
             alert(JSON.stringify(xhr));

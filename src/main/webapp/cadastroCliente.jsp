@@ -194,23 +194,23 @@
         </div>
 
         <div class="input-container">
-          <label for="estado">Estado:</label>
-          <input
-            type="text"
-            id="estado"
-            name="estado"
-            class="input-form"
-            maxlength="2"
-            readonly
-          />
             <label for="cidade">Cidade:</label>
-            <input type="text"
+                <input type="text"
                     id="cidade"
                     name="cidade"
                     class="input-form"
                     readonly
-             />
+                />
 
+          <label for="estado">Estado:</label>
+                  <input
+                    type="text"
+                    id="estado"
+                    name="estado"
+                    class="input-form"
+                    maxlength="2"
+                    readonly
+                  />
         </div>
 
         <div class="buttons">
