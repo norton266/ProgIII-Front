@@ -113,12 +113,12 @@
             class="input-form"
             maxlength="20"
           />
-            <label for="sexo">Sexo:</label>
-                    <select name="sexo" class="input-form" required>
-                      <option value=""></option>
-                      <option value="MASCULINO">MASCULINO</option>
-                      <option value="FEMININO">FEMININO</option>
-                    </select>
+        <label for="sexo">Sexo:</label>
+                <select name="sexo" class="input-form" required>
+                  <option value=""></option>
+                  <option value="MASCULINO">MASCULINO</option>
+                  <option value="FEMININO">FEMININO</option>
+                </select>
         </div>
         <div class="input-container">
           <label for="email">Email:</label>
@@ -131,14 +131,15 @@
             required
           />
 
-          <label for="telefone">Telefone (com DDD):</label>
+          <label for="telefone">Telefone:</label>
           <input
             type="tel"
             id="telefone"
             name="telefone"
             class="input-form"
-            pattern="[0-9]{8,9}"
+            pattern="\+\d{2}\(\d{2}\)\d{5}-\d{4}"
             title="Digite um telefone válido (8 ou 9 dígitos)"
+            placeholder="+55(00)00000-0000"
             required
           />
 
@@ -185,6 +186,7 @@
             class="input-form"
             pattern="[0-9]{8}"
             title="Digite um CEP válido (8 dígitos)"
+            placeholder="00000000"
             required
           />
         </div>

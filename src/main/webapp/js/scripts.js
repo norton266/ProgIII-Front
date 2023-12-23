@@ -148,3 +148,25 @@ function toogleLoginError(){
     location.href = "index.html";
   }
 }
+
+document.getElementById("cep").addEventListener("focusout", function() {
+    var cep = this.value.replace(/\D/g, "");
+    if (cep !== "") {
+        var validacep = /^[0-9]{8}$/;
+        if (validacep.test(cep)) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("logradouro").value = data.logradouro;
+                    document.getElementById("bairro").value = data.bairro;
+                    document.getElementById("cidade").value = data.localidade;
+                    document.getElementById("estado").value = data.uf;
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar CEP:", error);
+                });
+        } else {
+            alert("Formato de CEP inválido.");
+        }
+    }
+});
