@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="886ea973-44ff-4db9-aae5-5ea8d27686c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cadastroCliente.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cadastroCliente.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/processamentoCliente.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/processamentoCliente.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
