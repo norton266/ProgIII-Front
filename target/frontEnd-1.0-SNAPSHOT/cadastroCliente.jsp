@@ -67,7 +67,7 @@
             required
           />
 
-          <label for="date">Data de Nascimento (YYYYMMDD):</label>
+          <label for="date">Data de Nascimento:</label>
           <input
             type="text"
             id="date"
@@ -75,6 +75,7 @@
             pattern="\d{8}"
             title="Digite a data de nascimento no formato YYYYMMDD"
             maxlength="8"
+            placeholder="YYYYMMDD"
             required
           />
         </div>
