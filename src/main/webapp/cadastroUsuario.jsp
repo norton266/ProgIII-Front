@@ -21,7 +21,7 @@
   <%
       if (acao.equals("Atualizar") || acao.equals("Excluir")) {
   %>
-      <body onload="buscarCamisaPorId(<%= id%>)">
+      <body onload="buscarUsuarioPorId(<%= id%>)">
   <%
       } else {
   %>
