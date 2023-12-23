@@ -172,3 +172,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+function buscarClientePorId(id) {
+    var params = '';
+    $.ajax({
+        type: "GET",  /* método de envio dos parâmetros para o web service */
+        url: "http://localhost:8080/ProgIII/webresources/Clientes/"+id,
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status) {
+            $("#modelo").val(msg.modelo);
+            $("#tamanho").val(msg.tamanho);
+            $("#preco").val(msg.preco);
+            $("#qtde").val(msg.quantidade_estoque);
+        },
+        error: function(xhr, msg, e) {
+            alert(JSON.stringify(xhr));
+        }
+    });
+}
