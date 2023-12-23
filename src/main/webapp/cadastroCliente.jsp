@@ -113,16 +113,13 @@
             maxlength="20"
           />
 
-          <label for="sexo">Sexo:</label>
-          <input
-            type="text"
-            id="sexo"
-            name="sexo"
-            class="input-form"
-            pattern="^(FEMININO|MASCULINO)$"
-            title="Digite 'Feminino' ou 'Masculino'"
-            required
-          />
+          <label for="unidade">Sexo:</label>
+        <select name ="sexo" id="sexo">
+            <option value=""> -- Selecione uma opcao -- </option>
+            <option id="feminino" value="FEMININO">FEMININO</option>
+            <option id="masculino" value="MASCULINO">MASCULINO</option>
+            
+        </select>
         </div>
         <div class="input-container">
           <label for="email">Email:</label>
