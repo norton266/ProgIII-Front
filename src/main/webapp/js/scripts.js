@@ -98,7 +98,7 @@ function salvarCliente(id, nome, data_nascimento, cpf, rg,
 
     $.ajax({
         type: "PUT",
-        url: "http://localhost/ProgIII/webresources/Clientes/inserir",
+        url: "http://localhost:8080/ProgIII/webresources/Clientes/inserir",
         data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
