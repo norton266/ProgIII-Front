@@ -5,17 +5,39 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    String id = request.getParameter("id");
+    String acao = request.getParameter("acao");
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="./js/scripts.js"></script>
+    <script language="javascript" src="./js/scripts.js"></script>
     <title>Document</title>
   </head>
 
+  <%
+    if (acao.equalsIgnoreCase("Atualizar") || acao.equalsIgnoreCase("Excluir")){
+  %>
+
+  <body onload="buscarClientePorId(<%= id%>">
+
+  <%
+    }else{
+  %>
+
   <body>
+
+  <%
+        id = "-1";
+    }
+  %>
     <div>
       <header>
         <img src="./icons/pizza.png" id="logo-img" />
@@ -55,6 +77,7 @@
         <h1>Cadastro de cliente</h1>
         <hr id="hr-form" />
       </div>
+
       <form id="formulario" action="processamentoCliente.jsp" method="post">
         <div class="input-container">
           <label for="nome">Nome:</label>
@@ -64,6 +87,7 @@
             name="nome"
             class="input-form"
             maxlength="100"
+            value="<%= nome%>"
             required
           />
 
@@ -76,6 +100,7 @@
             title="Digite a data de nascimento no formato YYYYMMDD"
             maxlength="8"
             placeholder="YYYYMMDD"
+            value="<%= data_nascimento%>"
             required
           />
         </div>
@@ -89,6 +114,7 @@
             class="input-form"
             pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
             title="Digite um CPF válido no formato 000.000.000-00"
+            value="<%= cpf%>"
             placeholder="xxx.xxx.xxx-xx"
             required
           />
@@ -101,6 +127,8 @@
             class="input-form"
             minlength="10"
             maxlength="15"
+            value="<%= rg%>"
+            required
           />
         </div>
 
@@ -112,11 +140,12 @@
             name="orgao-emissor"
             class="input-form"
             maxlength="20"
+            value="<%= orgao_emissor%>"
           />
 
           <label for="sexo">Sexo:</label>
         <select name ="sexo" id="sexo">
-            <option value=""> -- Selecione uma opcao -- </option>
+            <option value="<%= sexo%>"> -- Selecione uma opcao -- </option>
             <option id="feminino" value="FEMININO">FEMININO</option>
             <option id="masculino" value="MASCULINO">MASCULINO</option>
             
@@ -130,6 +159,7 @@
             name="email"
             class="input-form"
             maxlength="100"
+            value="<%= email%>"
             required
           />
 
@@ -142,11 +172,12 @@
             pattern="\+\d{2}\(\d{2}\)\d{5}-\d{4}"
             title="Digite um telefone válido (8 ou 9 dígitos)"
             placeholder="+55(00)00000-0000"
+            value="<%= telefone%>"
             required
           />
 
           <label for="whats">Whatsapp:</label>
-          <input type="tel" id="whats" name="whats" class="input-form" />
+          <input type="tel" id="whats" name="whats" class="input-form" value="<%= whats%>"/>
         </div>
 
         <div class="input-container">
@@ -159,6 +190,7 @@
                 pattern="[0-9]{8}"
                 title="Digite um CEP válido (8 dígitos)"
                 placeholder="00000000"
+                value="<%= cep%>"
                 required
               />
 
@@ -168,6 +200,7 @@
                 id="logradouro"
                 name="logradouro"
                 class="input-form"
+                value="<%= logradouro%>"
                 readonly
               />
 
@@ -180,6 +213,7 @@
                 id="numero"
                 name="numero"
                 class="input-form"
+                value="<%= numero%>"
                 />
 
           <label for="bairro">Bairro:</label>
@@ -187,6 +221,7 @@
                 id="bairro"
                 name="bairro"
                 class="input-form"
+                value="<%= bairro%>"
                 readonly
                 />
 
@@ -199,6 +234,7 @@
                     id="cidade"
                     name="cidade"
                     class="input-form"
+                    value="<%= cidade%>"
                     readonly
                 />
 
@@ -209,12 +245,13 @@
                     name="estado"
                     class="input-form"
                     maxlength="2"
+                    value="<%= estado%>"
                     readonly
                   />
         </div>
 
         <div class="buttons">
-          <input type="submit" name="acao" value="inserir" id="salvar"/>
+          <input type="submit" name="acao" value="<%= acao%>" id="salvar"/>
           <input type="submit" value="Cancelar" id="cancelar" />
         </div>
       </form>

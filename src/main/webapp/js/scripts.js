@@ -186,7 +186,7 @@ function buscarClientePorId(id) {
             $("#date").val(msg.data_nascimento);
             $("#cpf").val(msg.cpf);
             $("#rg").val(msg.rg);
-            $("#orgao-emissor").val(msg.orgao-emissor);
+            $("#orgao-emissor").val(msg.orgao_emissor);
             $("#sexo").val(msg.sexo);
             $("#email").val(msg.email);
             $("#telefone").val(msg.telefone);
