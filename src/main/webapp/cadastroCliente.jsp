@@ -26,7 +26,7 @@
     if (acao.equals("Atualizar") || acao.equals("Excluir")){
   %>
 
-  <body onload="buscarClientePorId(<%= id%>">
+  <body onload="buscarClientePorId(<%= id%>)">
 
   <%
     }else{

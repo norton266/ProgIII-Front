@@ -207,26 +207,17 @@ function buscarUsuarioPorId(id) {
     var params = '';
     $.ajax({
         type: "GET",  /* método de envio dos parâmetros para o web service */
-        url: "http://localhost:8080/ProgIII/webresources/Clientes/"+id,
+        url: "http://localhost:8080/ProgIII/webresources/Usuarios/"+cpf,
         data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(msg, status) {
             $("#nome").val(msg.nome);
             $("#date").val(msg.data_nascimento);
-            $("#cpf").val(msg.cpf);
-            $("#rg").val(msg.rg);
-            $("#orgao-emissor").val(msg.orgao_emissor);
-            $("#sexo").val(msg.sexo);
             $("#email").val(msg.email);
             $("#telefone").val(msg.telefone);
             $("#whats").val(msg.whats);
-            $("#cep").val(msg.cep);
-            $("#logradouro").val(msg.logradouro);
-            $("#numero").val(msg.numero);
-            $("#bairro").val(msg.bairro);
-            $("#cidade").val(msg.cidade);
-            $("#estado").val(msg.estado);
+            $("#username").val(msg.username);
         },
         error: function(xhr, msg, e) {
             alert(JSON.stringify(xhr));
