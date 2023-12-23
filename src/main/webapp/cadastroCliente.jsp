@@ -150,35 +150,45 @@
         </div>
 
         <div class="input-container">
-        <label for="cep">CEP:</label>
-                  <input
-                    type="text"
-                    id="cep"
-                    name="cep"
-                    class="input-form"
-                    pattern="[0-9]{8}"
-                    title="Digite um CEP válido (8 dígitos)"
-                    placeholder="00000000"
-                    required
-                  />
+            <label for="cep">CEP:</label>
+              <input
+                type="text"
+                id="cep"
+                name="cep"
+                class="input-form"
+                pattern="[0-9]{8}"
+                title="Digite um CEP válido (8 dígitos)"
+                placeholder="00000000"
+                required
+              />
 
           <label for="logradouro">Logradouro:</label>
-          <input
-            type="text"
-            id="logradouro"
-            name="logradouro"
-            class="input-form"
-          />
+              <input
+                type="text"
+                id="logradouro"
+                name="logradouro"
+                class="input-form"
+                readonly
+              />
 
 
         </div>
 
         <div class="input-container">
         <label for="numero">Número:</label>
-          <input type="text" id="numero" name="numero" class="input-form" />
+          <input type="text"
+                id="numero"
+                name="numero"
+                class="input-form"
+                />
 
           <label for="bairro">Bairro:</label>
-          <input type="text" id="bairro" name="bairro" class="input-form" />
+          <input type="text"
+                id="bairro"
+                name="bairro"
+                class="input-form"
+                readonly
+                />
 
 
         </div>
@@ -194,7 +204,12 @@
             readonly
           />
             <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" name="cidade" class="input-form" />
+            <input type="text"
+                    id="cidade"
+                    name="cidade"
+                    class="input-form"
+                    readonly
+                    />
 
         </div>
 
