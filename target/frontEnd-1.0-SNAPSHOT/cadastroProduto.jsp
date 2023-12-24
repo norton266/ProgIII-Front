@@ -70,6 +70,8 @@
         <hr id="hr-form" />
       </div>
       <form id="formulario" action="processamentoProduto.jsp" method="post">
+          <input type="hidden" name="id" id="id" value="<%= id%>"><!-- comment -->
+          
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" maxlength="100" required />
 
