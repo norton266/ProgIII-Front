@@ -136,7 +136,7 @@ function salvarCliente(id, nome, data_nascimento, cpf, rg,
     });
 }
 
-function salvarProduto(id, nome, descricao, unidade, preco_unitario) {
+function salvarProduto(id, nome, descricao, unidade, preco_unitario, acao) {
     var params = "{\"id\":"+id+",";
     params += "\"nome\":\""+nome+"\",";
     params += "\"descricao\":"+descricao+",";
@@ -147,7 +147,7 @@ function salvarProduto(id, nome, descricao, unidade, preco_unitario) {
     
     $.ajax({
         type: "PUT",
-        url: "http://localhost:8080/ProgIII/webresources/Produtos/inserir",
+        url: "http://localhost:8080/ProgIII/webresources/Produtos/"+acao,
         data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -280,3 +280,64 @@ function listarUsuarios(){
         }
     });
 }
+
+function listarProdutos(){
+    var params = '';
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/ProgIII/webresources/Produtos/all",
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status){
+            for(i=0; i < msg.length; i++){
+                var linha = "";
+                linha = "<tr>";
+                linha += "<td><input type=\"radio\" name=\"id\" value=\""+msg[i].id+"\"></td>";
+                linha += "<td>"+msg[i].nome+"</td>";
+                linha += "<td>"+msg[i].descricao+"</td>";                
+                linha += "<td>"+msg[i].unidade+"</td>";
+                linha += "<td>"+msg[i].preco_unitario+"</td>";
+                
+                linha += "</tr>";
+
+                $("#tabelaResultado").append(linha);
+
+            }
+        },
+        error: function(xhr,msg,e){
+            alert(JSON.stringify(xhr));
+        }
+    });
+}
+
+function buscarProdutoPorId(id) {
+    var params = '';
+    $.ajax({
+        type: "GET",  /* método de envio dos parâmetros para o web service */
+        url: "http://localhost:8080/ProgIII/webresources/Produtos/"+id,
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status) {
+            $("#nome").val(msg.nome);
+            $("#descricao").val(msg.descricao);
+            $("#cpf").val(msg.cpf);
+            $("#rg").val(msg.rg);
+            $("#orgao_emissor").val(msg.orgao_emissor);
+            $("#sexo").val(msg.sexo);
+            $("#email").val(msg.email);
+            $("#telefone").val(msg.telefone);
+            $("#whats").val(msg.whats);
+            $("#cep").val(msg.cep);
+            $("#logradouro").val(msg.logradouro);
+            $("#numero").val(msg.numero);
+            $("#bairro").val(msg.bairro);
+            $("#cidade").val(msg.cidade);
+            $("#estado").val(msg.estado);
+        },
+        error: function(xhr, msg, e) {
+            alert(JSON.stringify(xhr));
+        }
+    });
+    }
