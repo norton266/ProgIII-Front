@@ -20,7 +20,7 @@
     <title>Document</title>
   </head>
   <%
-      if (acao.equals("Atualizar") || acao.equals("Excluir")) {
+      if (acao.equals("atualizar") || acao.equals("excluir")) {
   %>
       <body onload="buscarUsuarioPorId('<%= cpf%>')">
   <%

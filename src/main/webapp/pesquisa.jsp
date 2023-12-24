@@ -37,7 +37,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
-          <a href="pesquisa.html">Pesquisa cliente</a>
+          <a href="pesquisa.jsp">Pesquisa cliente</a>
         </div>
       </div>
 
@@ -58,13 +58,13 @@
       <form action="cadastroCliente.jsp" method="post">
       <div id="buttons-pesquisa">
         <a href="./cadastroCliente.jsp"
-          ><input type="submit" name="acao" value="Inserir" class="input-filter"
+          ><input type="submit" name="acao" value="inserir" class="input-filter"
         /></a>
         <a href="./cadastroCliente.jsp"
-          ><input type="submit" name="acao" value="Atualizar" class="input-filter"
+          ><input type="submit" name="acao" value="atualizar" class="input-filter"
         /></a>
         <a href="./cadastroCliente.jsp"
-          ><input type="submit" value="Excluir" class="input-filter" onclick="excluir()"
+          ><input type="submit" value="excluir" class="input-filter" onclick="excluir()"
         /></a>
       </div>
 

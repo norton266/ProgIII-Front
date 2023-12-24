@@ -50,7 +50,28 @@ function excluir() {
     });
 }
 
-function salvarUsuario(cpf, nome, data_nascimento, email, telefone, whats, username, senha) {
+function excluirUsuario() {
+    var params = '{\"cpf\":'+$('input[name="cpf"]:checked').val()+'}';
+    
+    alert(params);
+    
+    $.ajax({
+        type: "PUT",
+        url: "http://localhost:8080/ProgIII/webresources/Usuarios/excluir",
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status) {
+            alert('Sucesso!!!!');
+            window.location.reload();
+        },
+        error: function(xhr, msg, e) {
+            alert(JSON.stringify(xhr));
+        }
+    });
+}
+
+function salvarUsuario(cpf, nome, data_nascimento, email, telefone, whats, username, senha, acao) {
     var params = "{\"cpf\":"+cpf+",";
     params += "\"nome\":\""+nome+"\",";
     params += "\"data_nascimento\":"+data_nascimento+",";
@@ -64,7 +85,7 @@ function salvarUsuario(cpf, nome, data_nascimento, email, telefone, whats, usern
     
     $.ajax({
         type: "PUT", // ou "PUT" dependendo do seu endpoint
-        url: "http://localhost:8080/ProgIII/webresources/Usuarios/inserir",
+        url: "http://localhost:8080/ProgIII/webresources/Usuarios/"+acao,
         data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -81,7 +102,7 @@ function salvarUsuario(cpf, nome, data_nascimento, email, telefone, whats, usern
 
 function salvarCliente(id, nome, data_nascimento, cpf, rg,
  orgao_emissor, sexo, email,telefone,whats,
- logradouro,numero,bairro,cidade,estado,cep) {
+ logradouro,numero,bairro,cidade,estado,cep, acao) {
     var params = "{\"id\":"+id+",";
     params += "\"nome\":\""+nome+"\",";
     params += "\"data_nascimento\":"+data_nascimento+",";
@@ -101,7 +122,7 @@ function salvarCliente(id, nome, data_nascimento, cpf, rg,
 
     $.ajax({
         type: "PUT",
-        url: "http://localhost:8080/ProgIII/webresources/Clientes/inserir",
+        url: "http://localhost:8080/ProgIII/webresources/Clientes/"+acao,
         data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -186,7 +207,7 @@ function buscarClientePorId(id) {
             $("#date").val(msg.data_nascimento);
             $("#cpf").val(msg.cpf);
             $("#rg").val(msg.rg);
-            $("#orgao-emissor").val(msg.orgao_emissor);
+            $("#orgao_emissor").val(msg.orgao_emissor);
             $("#sexo").val(msg.sexo);
             $("#email").val(msg.email);
             $("#telefone").val(msg.telefone);
