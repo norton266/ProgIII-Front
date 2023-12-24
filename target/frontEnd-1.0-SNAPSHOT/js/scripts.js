@@ -333,3 +333,24 @@ function buscarProdutoPorId(id) {
         }
     });
     }
+    
+    function excluirProduto() {
+    var params = '{\"id\":'+$('input[name="id"]:checked').val()+'}';
+    
+    alert(params);
+    
+    $.ajax({
+        type: "PUT",
+        url: "http://localhost:8080/ProgIII/webresources/Produtos/excluir",
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status) {
+            alert('Sucesso!!!!');
+            window.location.reload();
+        },
+        error: function(xhr, msg, e) {
+            alert(JSON.stringify(xhr));
+        }
+    });
+}

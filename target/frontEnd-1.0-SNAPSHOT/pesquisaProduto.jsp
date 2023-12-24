@@ -60,7 +60,7 @@
           ><input type="submit" name="acao" value="atualizar" class="input-filter"
         /></a>
         <a href="./cadastroProduto.jsp"
-          ><input type="submit" value="excluir" class="input-filter" onclick="excluirUsuario()"
+          ><input type="submit" value="excluir" class="input-filter" onclick="excluirProduto()"
         /></a>
       </div>
 
