@@ -83,6 +83,7 @@ function salvarUsuario(cpf, nome, data_nascimento, email, telefone, whats, usern
     
     alert(params);
     
+    alert(acao);
     $.ajax({
         type: "PUT", // ou "PUT" dependendo do seu endpoint
         url: "http://localhost:8080/ProgIII/webresources/Usuarios/"+acao,

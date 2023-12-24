@@ -46,15 +46,7 @@
         <hr id="hr-form" />
       </div>
 
-      <form class="filtroGeral">
-        <label for="nome">Filtro:</label>
-        <div id="campoFiltro">
-          <input type="text" id="filtro" name="filtro" required />
-        </div>
-        <div class="botaoFiltro">
-          <button id="botaoFiltrar" class="input-filter">Filtrar</button>
-        </div>
-      </form>
+      
       <form action="cadastroCliente.jsp" method="post">
       <div id="buttons-pesquisa">
         <a href="./cadastroCliente.jsp"
