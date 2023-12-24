@@ -47,7 +47,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
-          <a href="./cadastro-produto.html">Cadastro de produto</a>
+          <a href="./pesquisaProduto.jsp">Pesquisa produto</a>
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />

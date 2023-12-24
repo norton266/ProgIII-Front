@@ -15,12 +15,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="./js/scripts.js"></script>
     <title>Document</title>
   </head>
+  <%
+    if (acao.equals("atualizar") || acao.equals("excluir")){
+  %>
+
+  <body onload="buscarProdutoPorId(<%= id%>)">
+
+  <%
+    }else{
+  %>
 
   <body>
+
+  <%
+        id = "-1";
+    }
+  %>
     <div>
       <header>
         <img src="./icons/pizza.png" id="logo-img" />
@@ -39,7 +54,7 @@
         
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
-          <a href="./cadastro-produto.html">Cadastro de produto</a>
+          <a href="./pesquisaProduto.jsp">Pesquisa produto</a>
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
@@ -87,7 +102,7 @@
 
 
         <div class="buttons">
-          <input type="submit" value="inserir" name="acao" id="salvar" />
+          <input type="submit" value="<%= acao%>" name="acao" id="salvar" />
           <input type="submit" value="Cancelar" id="cancelar" />
         </div>
       </form>

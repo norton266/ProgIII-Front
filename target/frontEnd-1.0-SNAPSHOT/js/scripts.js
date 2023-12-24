@@ -145,6 +145,8 @@ function salvarProduto(id, nome, descricao, unidade, preco_unitario, acao) {
     
     alert(params);
     
+    alert(acao);
+    
     $.ajax({
         type: "PUT",
         url: "http://localhost:8080/ProgIII/webresources/Produtos/"+acao,
@@ -322,19 +324,9 @@ function buscarProdutoPorId(id) {
         success: function(msg, status) {
             $("#nome").val(msg.nome);
             $("#descricao").val(msg.descricao);
-            $("#cpf").val(msg.cpf);
-            $("#rg").val(msg.rg);
-            $("#orgao_emissor").val(msg.orgao_emissor);
-            $("#sexo").val(msg.sexo);
-            $("#email").val(msg.email);
-            $("#telefone").val(msg.telefone);
-            $("#whats").val(msg.whats);
-            $("#cep").val(msg.cep);
-            $("#logradouro").val(msg.logradouro);
-            $("#numero").val(msg.numero);
-            $("#bairro").val(msg.bairro);
-            $("#cidade").val(msg.cidade);
-            $("#estado").val(msg.estado);
+            $("#unidade").val(msg.unidade);
+            $("#preco").val(msg.preco_unitario);
+            
         },
         error: function(xhr, msg, e) {
             alert(JSON.stringify(xhr));
