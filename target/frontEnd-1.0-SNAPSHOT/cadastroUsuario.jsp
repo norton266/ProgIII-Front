@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String id = request.getParameter("id");
+    String cpf = request.getParameter("cpf");
     String acao = request.getParameter("acao");
 %>
 <!DOCTYPE html>
@@ -14,12 +14,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="./js/scripts.js"></script>
     <title>Document</title>
   </head>
-
-  <body>
+  <%
+      if (acao.equals("Atualizar") || acao.equals("Excluir")) {
+  %>
+      <body onload="buscarUsuarioPorId('<%= cpf%>')">
+  <%
+      } else {
+  %>
+      <body>
+  <%
+          cpf = "-1";
+      }
+  %>
     <div>
       <header>
         <img src="./icons/pizza.png" id="logo-img" />
@@ -36,7 +47,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-usuario.html">Cadastro de usuário</a>
+          <a href="./pesquisaUsuario.jsp">Pesquisa usuário</a>
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
@@ -52,20 +63,23 @@
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
-          <a href="pesquisa.jsp">Pesquisa</a>
+          <a href="pesquisa.jsp">Pesquisa Cliente</a>
         </div>
       </div>
       <div>
         <h1>Cadastro de usuário</h1>
         <hr id="hr-form" />
       </div>
-      <form id="formulario" action="processamento.jsp" method="post">
+      <form id="formulario" action="processamentoUsuario.jsp" method="post">
+      <input type="hidden" name="id" id="id" value="<%= cpf%>">
+
         <label for="cpf">CPF:</label>
         <input
           type="text"
           id="cpf"
           name="cpf"
           pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+          placeholder ="000.000.000-00"
           required
           title="Digite um CPF válido no formato 000.000.000-00"
         />
@@ -120,7 +134,7 @@
         </div>
 
         <div class="buttons">
-          <input type="submit" name="acao" value="inserir" id="salvar"/>
+          <input type="submit" name="acao" value="<%= acao%>" id="salvar"/>
           <input type="submit" value="Cancelar" id="cancelar" />
         </div>
       </form>

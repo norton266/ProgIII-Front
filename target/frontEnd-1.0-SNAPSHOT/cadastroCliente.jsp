@@ -5,17 +5,39 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    String id = request.getParameter("id");
+    String acao = request.getParameter("acao");
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="./js/scripts.js"></script>
+    <script language="javascript" src="./js/scripts.js"></script>
     <title>Document</title>
   </head>
 
+  <%
+    if (acao.equals("Atualizar") || acao.equals("Excluir")){
+  %>
+
+  <body onload="buscarClientePorId(<%= id%>)">
+
+  <%
+    }else{
+  %>
+
   <body>
+
+  <%
+        id = "-1";
+    }
+  %>
     <div>
       <header>
         <img src="./icons/pizza.png" id="logo-img" />
@@ -32,7 +54,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-usuario.html">Cadastro de usuário</a>
+          <a href="./pesquisaUsuario.jsp">Pesquisa usuário</a>
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
@@ -55,7 +77,10 @@
         <h1>Cadastro de cliente</h1>
         <hr id="hr-form" />
       </div>
+
       <form id="formulario" action="processamentoCliente.jsp" method="post">
+      <input type="hidden" name="id" id="id" value="<%= id%>">
+
         <div class="input-container">
           <label for="nome">Nome:</label>
           <input
@@ -101,6 +126,7 @@
             class="input-form"
             minlength="10"
             maxlength="15"
+            required
           />
         </div>
 
@@ -114,14 +140,13 @@
             maxlength="20"
           />
 
-          <label for="unidade">Sexo:</label>
+          <label for="sexo">Sexo:</label>
         <select name ="sexo" id="sexo">
             <option value=""> -- Selecione uma opcao -- </option>
             <option id="feminino" value="FEMININO">FEMININO</option>
             <option id="masculino" value="MASCULINO">MASCULINO</option>
             
         </select>
-
         </div>
         <div class="input-container">
           <label for="email">Email:</label>
@@ -134,14 +159,15 @@
             required
           />
 
-          <label for="telefone">Telefone (com DDD):</label>
+          <label for="telefone">Telefone:</label>
           <input
             type="tel"
             id="telefone"
             name="telefone"
             class="input-form"
-            pattern="[0-9]{8,9}"
+            pattern="\+\d{2}\(\d{2}\)\d{5}-\d{4}"
             title="Digite um telefone válido (8 ou 9 dígitos)"
+            placeholder="+55(00)00000-0000"
             required
           />
 
@@ -150,50 +176,71 @@
         </div>
 
         <div class="input-container">
+            <label for="cep">CEP:</label>
+              <input
+                type="text"
+                id="cep"
+                name="cep"
+                class="input-form"
+                pattern="[0-9]{8}"
+                title="Digite um CEP válido (8 dígitos)"
+                placeholder="00000000"
+                required
+              />
+
           <label for="logradouro">Logradouro:</label>
-          <input
-            type="text"
-            id="logradouro"
-            name="logradouro"
-            class="input-form"
-          />
+              <input
+                type="text"
+                id="logradouro"
+                name="logradouro"
+                class="input-form"
+                readonly
+              />
 
-          <label for="numero">Número:</label>
-          <input type="text" id="numero" name="numero" class="input-form" />
+
         </div>
 
         <div class="input-container">
+        <label for="numero">Número:</label>
+          <input type="text"
+                id="numero"
+                name="numero"
+                class="input-form"
+                />
+
           <label for="bairro">Bairro:</label>
-          <input type="text" id="bairro" name="bairro" class="input-form" />
+          <input type="text"
+                id="bairro"
+                name="bairro"
+                class="input-form"
+                readonly
+                />
 
-          <label for="cidade">Cidade:</label>
-          <input type="text" id="cidade" name="cidade" class="input-form" />
+
         </div>
 
         <div class="input-container">
-          <label for="estado">Estado:</label>
-          <input
-            type="text"
-            id="estado"
-            name="estado"
-            class="input-form"
-            maxlength="2"
-          />
+            <label for="cidade">Cidade:</label>
+                <input type="text"
+                    id="cidade"
+                    name="cidade"
+                    class="input-form"
+                    readonly
+                />
 
-          <label for="cep">CEP:</label>
-          <input
-            type="text"
-            id="cep"
-            name="cep"
-            class="input-form"
-            pattern="[0-9]{8}"
-            title="Digite um CEP válido (8 dígitos)"
-            required
-          />
+          <label for="estado">Estado:</label>
+                  <input
+                    type="text"
+                    id="estado"
+                    name="estado"
+                    class="input-form"
+                    maxlength="2"
+                    readonly
+                  />
         </div>
 
         <div class="buttons">
-          <input type="submit" name="acao" value="inserir" id="salvar"/>
+          <input type="submit" name="acao" value="<%= acao%>" id="salvar"/>
           <input type="submit" value="Cancelar" id="cancelar" />
         </div>
       </form>

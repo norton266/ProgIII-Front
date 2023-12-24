@@ -207,19 +207,53 @@ function buscarUsuarioPorId(id) {
     var params = '';
     $.ajax({
         type: "GET",  /* método de envio dos parâmetros para o web service */
-        url: "http://localhost:8080/ProgIII/webresources/Usuarios/"+cpf,
+        url: "http://localhost:8080/ProgIII/webresources/Usuarios/"+id,
         data: params,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(msg, status) {
             $("#nome").val(msg.nome);
-            $("#date").val(msg.data_nascimento);
+            $("#cpf").val(msg.cpf);
+             
             $("#email").val(msg.email);
             $("#telefone").val(msg.telefone);
             $("#whats").val(msg.whats);
             $("#username").val(msg.username);
+            $("#senha").val(msg.senha);
+            
+           
         },
         error: function(xhr, msg, e) {
+            alert(JSON.stringify(xhr));
+        }
+    });
+}
+
+function listarUsuarios(){
+    var params = '';
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/ProgIII/webresources/Usuarios/all",
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status){
+            for(i=0; i < msg.length; i++){
+                var linha = "";
+                linha = "<tr>";
+                linha += "<td><input type=\"radio\" name=\"cpf\" value=\""+msg[i].cpf+"\"></td>";
+                linha += "<td>"+msg[i].nome+"</td>";
+                linha += "<td>"+msg[i].cpf+"</td>";                
+                linha += "<td>"+msg[i].email+"</td>";
+                linha += "<td>"+msg[i].telefone+"</td>";
+                
+                linha += "</tr>";
+
+                $("#tabelaResultado").append(linha);
+
+            }
+        },
+        error: function(xhr,msg,e){
             alert(JSON.stringify(xhr));
         }
     });

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String id = request.getParameter("id");
+    String cpf = request.getParameter("cpf");
     String acao = request.getParameter("acao");
 %>
 <!DOCTYPE html>
@@ -14,6 +14,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="./js/scripts.js"></script>
     <title>Document</title>
@@ -21,13 +22,13 @@
   <%
       if (acao.equals("Atualizar") || acao.equals("Excluir")) {
   %>
-      <body onload="buscarUsuarioPorId(<%= id%>)">
+      <body onload="buscarUsuarioPorId('<%= cpf%>')">
   <%
       } else {
   %>
       <body>
   <%
-          id = "-1";
+          cpf = "-1";
       }
   %>
     <div>
@@ -46,7 +47,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-usuario.html">Cadastro de usuário</a>
+          <a href="./pesquisaUsuario.jsp">Pesquisa usuário</a>
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
@@ -62,7 +63,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
-          <a href="pesquisa.jsp">Pesquisa</a>
+          <a href="pesquisa.jsp">Pesquisa Cliente</a>
         </div>
       </div>
       <div>
@@ -70,7 +71,7 @@
         <hr id="hr-form" />
       </div>
       <form id="formulario" action="processamentoUsuario.jsp" method="post">
-      <input type="hidden" name="id" id="id" value="<%= id%>">
+      <input type="hidden" name="id" id="id" value="<%= cpf%>">
 
         <label for="cpf">CPF:</label>
         <input

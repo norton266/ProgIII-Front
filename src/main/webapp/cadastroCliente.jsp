@@ -54,7 +54,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-usuario.html">Cadastro de usuário</a>
+          <a href="./pesquisaUsuario.jsp">Pesquisa usuário</a>
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />

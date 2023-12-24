@@ -11,6 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="./js/scripts.js"></script>
     <title>Document</title>
@@ -18,14 +19,15 @@
     <%
         String acao = request.getParameter("acao");
     %>
-  <body onload="salvarCliente(<%= request.getParameter("id")%>, '<%= request.getParameter("nome")%>', <%= request.getParameter("data_nascimento")%>, 
+  <body onload="salvarCliente(<%= request.getParameter("id")%>, '<%= request.getParameter("nome")%>',
+              '<%= request.getParameter("data_nascimento")%>',
               '<%= request.getParameter("cpf")%>', '<%= request.getParameter("rg")%>', 
-              <%= request.getParameter("Orgao Emissor")%>, '<%= request.getParameter("sexo")%>', 
+              '<%= request.getParameter("Orgao Emissor")%>', '<%= request.getParameter("sexo")%>',
               '<%= request.getParameter("email")%>', '<%= request.getParameter("telefone")%>',
               '<%= request.getParameter("whats")%>', '<%= request.getParameter("logradouro")%>', 
               '<%= request.getParameter("numero")%>', '<%= request.getParameter("bairro")%>', 
               '<%= request.getParameter("cidade")%>', '<%= request.getParameter("estado")%>', 
-              '<%= request.getParameter("cep")%>', '<%= acao%>')">
+              '<%= request.getParameter("cep")%>', '<%= acao%>');">
     <div>
       <header>
         <img src="./icons/pizza.png" id="logo-img" />
@@ -42,7 +44,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-usuario.html">Cadastro de usuário</a>
+          <a href="./pesquisaUsuario.jsp">Pesquisa usuário</a>
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
@@ -62,10 +64,10 @@
         </div>
       </div>
       <div>
-        <h1>Cadastro de cliente</h1>
+        <h1>Cadastro</h1>
         <hr id="hr-form" />
         <p id="msg"></p>
-        <a href="/FrontEnd1012/camisas/lista.jsp">Voltar para Lista de Camisas</a>
+        <a href="/frontEnd/pesquisa.jsp">Voltar</a>
       </div>
       
      </div>

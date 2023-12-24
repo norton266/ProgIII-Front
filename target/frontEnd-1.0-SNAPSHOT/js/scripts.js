@@ -148,3 +148,113 @@ function toogleLoginError(){
     location.href = "index.html";
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var cepInput = document.getElementById("cep");
+
+    cepInput.addEventListener("blur", function() {
+        var cep = this.value.replace(/\D/g, "");
+
+        if (/^[0-9]{8}$/.test(cep)) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("logradouro").value = data.logradouro;
+                    document.getElementById("bairro").value = data.bairro;
+                    document.getElementById("cidade").value = data.localidade;
+                    document.getElementById("estado").value = data.uf;
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar CEP:", error);
+                });
+        } else {
+            alert("Formato de CEP inválido.");
+        }
+    });
+});
+
+function buscarClientePorId(id) {
+    var params = '';
+    $.ajax({
+        type: "GET",  /* método de envio dos parâmetros para o web service */
+        url: "http://localhost:8080/ProgIII/webresources/Clientes/"+id,
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status) {
+            $("#nome").val(msg.nome);
+            $("#date").val(msg.data_nascimento);
+            $("#cpf").val(msg.cpf);
+            $("#rg").val(msg.rg);
+            $("#orgao-emissor").val(msg.orgao_emissor);
+            $("#sexo").val(msg.sexo);
+            $("#email").val(msg.email);
+            $("#telefone").val(msg.telefone);
+            $("#whats").val(msg.whats);
+            $("#cep").val(msg.cep);
+            $("#logradouro").val(msg.logradouro);
+            $("#numero").val(msg.numero);
+            $("#bairro").val(msg.bairro);
+            $("#cidade").val(msg.cidade);
+            $("#estado").val(msg.estado);
+        },
+        error: function(xhr, msg, e) {
+            alert(JSON.stringify(xhr));
+        }
+    });
+}
+function buscarUsuarioPorId(id) {
+    var params = '';
+    $.ajax({
+        type: "GET",  /* método de envio dos parâmetros para o web service */
+        url: "http://localhost:8080/ProgIII/webresources/Usuarios/"+id,
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status) {
+            $("#nome").val(msg.nome);
+            $("#cpf").val(msg.cpf);
+             
+            $("#email").val(msg.email);
+            $("#telefone").val(msg.telefone);
+            $("#whats").val(msg.whats);
+            $("#username").val(msg.username);
+            $("#senha").val(msg.senha);
+            
+           
+        },
+        error: function(xhr, msg, e) {
+            alert(JSON.stringify(xhr));
+        }
+    });
+}
+
+function listarUsuarios(){
+    var params = '';
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/ProgIII/webresources/Usuarios/all",
+        data: params,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg, status){
+            for(i=0; i < msg.length; i++){
+                var linha = "";
+                linha = "<tr>";
+                linha += "<td><input type=\"radio\" name=\"cpf\" value=\""+msg[i].cpf+"\"></td>";
+                linha += "<td>"+msg[i].nome+"</td>";
+                linha += "<td>"+msg[i].cpf+"</td>";                
+                linha += "<td>"+msg[i].email+"</td>";
+                linha += "<td>"+msg[i].telefone+"</td>";
+                
+                linha += "</tr>";
+
+                $("#tabelaResultado").append(linha);
+
+            }
+        },
+        error: function(xhr,msg,e){
+            alert(JSON.stringify(xhr));
+        }
+    });
+}
