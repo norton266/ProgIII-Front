@@ -27,17 +27,10 @@
           <img src="./icons/botao-home.png" class="menu-icones" />
           <a href="index.html">Home</a>
         </div>
+        
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="tela-login.html">Login</a>
-        </div>
-        <div id="menu-links">
-          <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-usuario.html">Cadastro de usuário</a>
-        </div>
-        <div id="menu-links">
-          <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-cliente.html">Cadastro de cliente</a>
+          <a href="./pesquisaUsuario.jsp">Pesquisa usuário</a>
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
@@ -49,7 +42,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
-          <a href="pesquisa.html">Pesquisa</a>
+          <a href="pesquisa.html">Pesquisa cliente</a>
         </div>
       </div>
 
@@ -58,15 +51,6 @@
         <hr id="hr-form" />
       </div>
 
-      <form class="filtroGeral">
-        <label for="nome">Filtro:</label>
-        <div id="campoFiltro">
-          <input type="text" id="filtro" name="filtro" required />
-        </div>
-        <div class="botaoFiltro">
-          <button id="botaoFiltrar" class="input-filter">Filtrar</button>
-        </div>
-      </form>
       <form action="cadastroUsuario.jsp" method="post">
       <div id="buttons-pesquisa">
         <a href="./cadastroUsuario.jsp"

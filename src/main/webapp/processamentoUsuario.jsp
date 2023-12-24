@@ -30,16 +30,9 @@
         </div>
         <div id="menu-links">
           <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="tela-login.html">Login</a>
-        </div>
-        <div id="menu-links">
-          <img src="./icons/pessoas.png" class="menu-icones" />
           <a href="./pesquisaUsuario.jsp">Pesquisa usuário</a>
         </div>
-        <div id="menu-links">
-          <img src="./icons/pessoas.png" class="menu-icones" />
-          <a href="./cadastro-cliente.html">Cadastro de cliente</a>
-        </div>
+        
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
           <a href="./cadastro-produto.html">Cadastro de produto</a>
@@ -50,7 +43,7 @@
         </div>
         <div id="menu-links">
           <img src="./icons/icone-pizza-menu.png" class="menu-icones" />
-          <a href="pesquisa.jsp">Pesquisa</a>
+          <a href="pesquisa.jsp">Pesquisa cliente</a>
         </div>
       </div>
       <div>
